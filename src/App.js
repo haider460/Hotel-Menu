@@ -1,20 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import FoodDetails from "./component/FoodDetails";
-import Footer from "./component/Footer";
-import Header from "./component/Header";
-import MachineInfoComponent from "./component/MachineInfoComponent";
-import Menu from "./component/Menu";
-import TakeOutDeliveryComponent from "./component/TakeOutDeliveryComponent";
+import Main from "./Main";
 
 function App() {
   return (
     <div>
-      <Header />
-      <Menu />
-      <TakeOutDeliveryComponent />
-      <MachineInfoComponent />
-      <FoodDetails />
-      <Footer />
+      <Routes>
+        <Route path="/menu" element={<Main />} />
+        <Route path="/" element={<Main />} />
+      </Routes>
     </div>
   );
 }
