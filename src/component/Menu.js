@@ -13,7 +13,14 @@ export default function Menu() {
     fetch(`https://sabis.jollofbyjara.com/api/`)
       .then((response) => response.json())
       .then((data) => {
-        setMenu(data.data);
+        const arry = data.data;
+        const firstElement = data.data?.[0];
+        const lastElement = data.data?.[data.data?.length - 4];
+        data.data?.pop();
+        arry.splice(2, 0, firstElement);
+        arry.splice(5, 0, lastElement);
+        arry?.shift();
+        setMenu(arry);
       })
       .catch((error) => console.log({ error }))
       .finally(() => setLoading(false));
