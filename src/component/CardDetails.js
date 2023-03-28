@@ -1,19 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+
+const useOnClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler();
+    };
+    document.addEventListener("mousedown", listener);
+    document.addEventListener("touchstart", listener);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
+    };
+  }, [ref, handler]);
+};
 
 const List = ({ items, title }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedData, setSelectedData] = useState({});
+  const ref = useRef();
 
   const handleItemClick = (item) => {
-    setOpenModal(!openModal);
+    setOpenModal(true);
     setSelectedData(item);
   };
 
   const handleClose = () => {
-    setOpenModal(!openModal);
+    setOpenModal(false);
   };
 
-  
+  useOnClickOutside(ref, handleClose);
 
   useEffect(() => {
     if (openModal) {
@@ -37,13 +55,13 @@ const List = ({ items, title }) => {
             <div className="item-line">
               <hr></hr>
             </div>
-            <div className="item-price">{item.price}</div>
+            <div className="item-price">{item.price?.toLocaleString()}</div>
           </div>
         ))}
       </div>
       {openModal && (
         <div className="popup">
-          <div className="popup-inner">
+          <div className="popup-inner" ref={ref}>
             <div className="popup-header">
               <div className="selected-item-name">{selectedData.title}</div>
               <button className="popup-close" onClick={handleClose}>
