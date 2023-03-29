@@ -1,7 +1,7 @@
 import React from "react";
 import SpooneImage from "../image/spoone.png";
 import Glove from "../image/glove.png";
-import WhatsAppIcon from "../image/Jollof by Jara 1.png";
+import WhatsAppIcon from "../image/Click to Order.png";
 
 export default function TakeOutDeliveryComponent() {
   return (
