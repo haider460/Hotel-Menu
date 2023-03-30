@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="header-container">
       <div className="image-container">
-        <Link to="/">
+        <Link to="https://www.jollofbyjara.com">
           <img className="header-image" src={logo} alt="logo" />
         </Link>
       </div>
