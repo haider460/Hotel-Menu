@@ -43,16 +43,17 @@ export default function Menu() {
       const seventh = menu1?.[17];
       const eight = menu1?.[18];
       const nineth = menu1?.[19];
-
-      arry.splice(2, 0, firstElement);
       arry.splice(16, 1);
       arry.splice(17, 1);
+      arry.splice(18, 1);
+      arry.splice(19, 1);
+      arry?.shift();
+      arry.splice(2, 0, firstElement);
       arry.splice(16, 0, seventh);
       arry.splice(17, 0, sixth);
       arry.splice(19, 0, nineth);
       arry.splice(20, 0, eight);
 
-      arry?.shift();
       setMenu(arry);
     } else {
       fixCard(menu1);
