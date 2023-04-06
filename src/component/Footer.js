@@ -7,7 +7,7 @@ function Footer() {
     <div>
       <div className="small-footer">
         <p>
-          <b>OPEN:</b>TUESDAY-SUNDAY 10AM-10PM |<b>CLOSE:</b> MONDAY
+          <b>OPEN:</b>TUESDAY-SUNDAY 10AM-10PM |<b>CLOSED:</b> MONDAY
         </p>
       </div>
       <div className="footer-container">
@@ -16,7 +16,7 @@ function Footer() {
         </div>
         <div className="footer-details-container">
           <p>&#64;2023 JOLLOF BY JARA</p>
-          <p>Owned and operated by little company Nigria Limited</p>
+          <p>Owned and operated by Little Company Nigria Limited</p>
           <p> RC 1424441 | TIN 2050517</p>
         </div>
         <div className="footer-image-container">
